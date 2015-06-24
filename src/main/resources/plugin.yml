@@ -1,0 +1,88 @@
+name: BukkitMarkdown
+description: Allows users to use Markdown formatting in chat.
+author: Pietu1998
+prefix: Markdown
+main: net.pietu1998.bukkitmarkdown.BukkitMarkdown
+version: 0.2
+commands:
+  markdown:
+    description: Markdown formatting in chat
+    aliases: [bukkitmarkdown, bukkitmd, md]
+    usage: |
+      /<command> help - show available Markdown properties
+      /<command> status [player] - show Markdown settings
+      /<command> chat [player] - toggle Markdown usage in chat
+      /<command> signs [player] - toggle Markdown usage in signs
+      /<command> reload - reload configuration 
+
+permissions:
+  # full permissions
+  bukkitmarkdown.*:
+    description: Gives full access to Markdown
+    children:
+      bukkitmarkdown.use: true
+      bukkitmarkdown.help: true
+      bukkitmarkdown.status: true
+      bukkitmarkdown.statusany: true
+      bukkitmarkdown.toggle: true
+      bukkitmarkdown.toggleany: true
+      bukkitmarkdown.reload: true
+      
+  # permission for markdown list
+  bukkitmarkdown.help:
+    description: Allows you to show available Markdown
+    default: true
+  
+  # full use permissions
+  bukkitmarkdown.use:
+    description: Allows you to use Markdown formatting
+    children:
+      bukkitmarkdown.usechat: true
+      bukkitmarkdown.usesigns: true
+  
+  # use permission for chat
+  bukkitmarkdown.usechat:
+    description: Allows you to use Markdown formatting in chat
+    default: true
+  
+  # use permission for signs
+  bukkitmarkdown.usesigns:
+    description: Allows you to use Markdown formatting in signs
+    default: op
+  
+  # full toggle permissions for self
+  bukkitmarkdown.toggle:
+    description: Allows you to toggle Markdown on and off for yourself
+    children:
+      bukkitmarkdown.togglesigns: true
+      bukkitmarkdown.togglechat: true
+  
+  # toggle permission for chat on self
+  bukkitmarkdown.togglechat:
+    description: Allows you to toggle Markdown in chat on and off for yourself
+    default: true
+  
+  # toggle permission for signs on self
+  bukkitmarkdown.togglesigns:
+    description: Allows you to toggle Markdown in signs on and off for yourself
+    default: op
+  
+  # full toggle permissions for anyone
+  bukkitmarkdown.toggleany:
+    description: Allows you to toggle Markdown on and off for anyone
+    default: op
+  
+  # status permission for self
+  bukkitmarkdown.status:
+    description: Allows you to check your Markdown settings.
+    default: true
+  
+  # status permission for anyone
+  bukkitmarkdown.statusany:
+    description: Allows you to check anyone's Markdown settings.
+    default: op
+  
+  # reload permission
+  bukkitmarkdown.reload:
+    description: Allows you to reload the BukkitMarkdown configuration
+    default: op
